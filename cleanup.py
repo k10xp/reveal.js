@@ -1,4 +1,32 @@
-<!doctype html>
+from pathlib import Path
+import shutil
+
+if __name__ == "__main__":
+    # use set for faster lookups
+    include_list = {
+        # required
+        "cleanup.py",
+        "dist",
+        "plugin",
+        # repo
+        ".git",
+        ".gitignore",
+        "LICENSE",
+    }
+
+    base = Path(".")
+
+    for path in base.iterdir():
+        if path.name in include_list:
+            continue
+
+        # delete files, symlinks, directories
+        if path.is_file() or path.is_symlink():
+            path.unlink()
+        elif path.is_dir():
+            shutil.rmtree(path)
+
+    index_html_content = """<!doctype html>
 <html lang="en">
 
 <head>
@@ -34,4 +62,14 @@
     </script>
 </body>
 
-</html>
+</html>"""
+
+    Path("index.html").write_text(index_html_content, encoding="utf-8")
+
+    readme_content = """# RevealJS template
+
+```shell
+git clone --single-branch --branch template https://github.com/k10xp/reveal.js
+```
+"""
+    Path("README.md").write_text(readme_content, encoding="utf8")
