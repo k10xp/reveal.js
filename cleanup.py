@@ -38,8 +38,25 @@ if __name__ == "__main__":
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/black.css">
-
     <link rel="stylesheet" href="plugin/highlight/dracula.css">
+
+    <style>
+        .reveal {
+            font-size: 24px;
+        }
+
+        .reveal h1 {
+            font-size: 1.8em;
+        }
+
+        .reveal h2 {
+            font-size: 1.4em;
+        }
+
+        .reveal h3 {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 
 <body>
@@ -69,7 +86,8 @@ if __name__ == "__main__":
     readme_content = """# RevealJS template
 
 ```shell
-git clone --single-branch --branch template https://github.com/k10xp/reveal.js
+git clone --single-branch --branch template https://github.com/k10xp/reveal.js && \
+rm -rf .git .gitignore LICENSE README.md
 ```
 """
     Path("README.md").write_text(readme_content, encoding="utf8")
