@@ -39,7 +39,6 @@ if __name__ == "__main__":
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/black.css">
     <link rel="stylesheet" href="plugin/highlight/dracula.css">
-
     <style>
         .reveal {
             font-size: 24px;
@@ -74,6 +73,8 @@ if __name__ == "__main__":
     <script>
         Reveal.initialize({
             hash: true,
+            showHiddenSlides: true,
+            slideNumber: 'c/t',
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
         });
     </script>
